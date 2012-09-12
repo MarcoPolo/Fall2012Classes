@@ -1,0 +1,97 @@
+block content
+  h1= title
+  p Welcome to #{title}
+
+  #Notes
+    :markdown
+      Lorentz Transformations
+      =======================
+    \[ x' = \gamma ( x - vt ) \]
+    \[ y' = y \]
+    \[ z' = z \]
+    \[ t' = \gamma(t - {vx \over c^2  }) \]
+
+    :markdown
+      Velocity Transformations
+      ========================
+
+    \[ x' = {x - vt \over \sqrt{1-({v \over c})^2} } \]
+    \[ t' = {t -  {v \over c^2 }x \over \sqrt{ 1 - ({v \over c})^2}} \]
+    \[ V_x  =  {dx' \over dt' } = { { dx \over dt' } - v{dt \over dt'} \over \sqrt{ 1 - ({v \over c})^2} }  \]
+    \[ V_x' = { V_x - V \over  1 - ({V * V_x \over c^2})}   \]
+    \[ V_y' = { V_y \sqrt{ 1 - ({v \over c})^2} \over 1 - ({V * V_x \over c^2})} \] 
+
+    :markdown
+      Examples:
+      =========
+      ### Cannon at  ` $0.6c$ `  fires a laser at $0.6c$ ###
+
+    \[ V_{SB} = { V_{AB} + V_{SA} \over 1 + {V_{AB}V_{SA} \over c^2 } } \]
+
+    \[ V_{SB} = { 0.6c + 0.6c \over 1 + {(0.6c)(0.6c) \over c^2 } } \]
+
+    \[ V_{SB} = { 0.6c + 0.6c \over (1.3c) } \]
+
+    \[ V_{SB} = 0.88c \]
+
+
+    :markdown
+      * Why is there  a plus? 
+      * Careful with the sign on the transforation 
+      * when going from the prime to to the unprime 
+      * This example is important
+
+      Doppler effect 
+      =============
+      Two mirrors parrallel to each other like so
+      <pre>
+       | --->  |
+       |       |
+       |       |
+       |       |
+       |       |
+       |       |
+
+      </pre>
+      Event:
+      -----
+
+    \[ 1: x'_1=x_1=0 t'1=t1=0 \]
+    \[ 2:  \textrm{lightpulse reaches } x'_2 \] 
+    \[ 3: \textrm{light comes back to } x'_1 \] 
+
+    \[ x = { x' + vt' \over \sqrt{ 1 - ({ v \over c })^2 } } \]
+    \[ t_{up} = { {L_0 \over c} + {vL_0 \over c^2} \over \sqrt{ 1 - ({ v \over c })^2 } } \]
+    \[ t_{down} = { {L_0 \over c} - {vL_0 \over c^2} \over \sqrt{ 1 - ({ v \over c })^2 } } \]
+    \[ t_{total} = t_{up} + t_{down} \]
+
+    \[ t_{up} = t'_{up}({ 1 + {v\over c} \over \sqrt{ 1 - ({ v \over c })^2 } }) \]
+
+    \[ f = {1 \over T } \]
+
+    \[ f = f_o \sqrt{ {1 - v/c \over 1 + {v / c}}} \]
+
+    \[ f = f_o \sqrt{ {1 + v/c \over 1 - {v / c}}} \]
+
+
+    :markdown
+      expand sound doppler binomial theorem
+
+block scripts
+  script(src='https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML')
+  script
+    MathJax.Hub.Config({
+    tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+    });
+    MathJax.Hub.Queue(function() {
+        // Fix <code> tags after MathJax finishes running. This is a
+        // hack to overcome a shortcoming of Markdown. Discussion at
+        // https://github.com/mojombo/jekyll/issues/199
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i = 0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+

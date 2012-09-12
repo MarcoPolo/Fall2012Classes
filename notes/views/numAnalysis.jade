@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  #Notes
+    :markdown
+      Here is some math
+      -----------------
+    \[ a^2 + b^2 = c^2 \] 
+
+    :markdown
+      Example drawing 
+      ===============
+      <pre>
+
+      |
+      |   =>   ---- []
+      |
+      +---------------
+      </pre>
+
+
+
+block scripts
+  script(src='https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML')
+
+
