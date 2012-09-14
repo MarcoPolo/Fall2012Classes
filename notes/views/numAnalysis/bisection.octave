@@ -1,0 +1,35 @@
+clc;
+clear all;
+close all;
+
+f = inline('x^3-7*x^2+14*x-6', 'x')   % a simple example: x^2+x
+a = 3.2;
+b = 4;
+tol = 10^-2;   % tolerance
+n = 0
+result = []
+
+if f(a)*f(b) >0
+    error('function has same signs at both endpoints')
+end
+
+while abs(b-a) > tol
+    x = (a+b)/2;
+    y = f(x);
+    n = n + 1 
+ 
+    result = [result; [n,a,b,x,y]]
+    disp ( [n,a,b,x,y] )
+    if y == 0 % solved! :)
+        e = x;
+        break
+    end
+    if f(a)*y < 0
+        b = x;
+        
+    else
+        a = x;
+    end
+
+end
+e = (b+a)/2

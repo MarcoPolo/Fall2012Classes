@@ -1,0 +1,40 @@
+clc;
+clear all;
+close all;
+
+%f = inline('pi + 0.5 sin(x/2)', 'x')   % a simple example: x^2+x
+f = @(x) ( pi + .5 * sin(x/2) )
+a = 0;
+b = 2*pi;
+k = .25
+tol = 10^-2;   % tolerance
+n = 0
+result = []
+diff = (a+b)/2
+x = diff
+
+error = @(n,k,diff) ( k^n / (1-k) * (diff) )
+
+if f(a)*f(b) >0
+    error('function has same signs at both endpoints')
+end
+
+while error(n,k,diff) > tol
+    xOld = x
+    x = f(x);
+    n = n + 1 
+ 
+    result = [result; [n,xOld,x]]
+    if x == 0 % solved! :)
+        e = x;
+        break
+    end
+    if f(a)*x < 0
+        b = x;
+        
+    else
+        a = x;
+    end
+
+end
+e = (b+a)/2
